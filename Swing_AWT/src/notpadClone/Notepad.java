@@ -74,7 +74,7 @@ public class Notepad {
 		createCmdPromptItems();
 	}
 
-	private void createEditLanguageItems() {
+	public void createEditLanguageItems() {
 		// TODO Auto-generated method stub
 		JMenuItem itemJava = new JMenuItem("Java");
 		itemJava.setFont(itemJava.getFont().deriveFont(16.0f));
@@ -511,7 +511,7 @@ public class Notepad {
 		fileMenu.add(itemExit);
 	}
 
-	private void createMenuBar() {
+	public void createMenuBar() {
 
 		menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
@@ -534,7 +534,7 @@ public class Notepad {
 
 	}
 
-	private void createScrollBar() {
+	public void createScrollBar() {
 
 		JScrollPane scrollBar = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -550,7 +550,7 @@ public class Notepad {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
-	private void createTextArea() {
+	public void createTextArea() {
 		textArea = new JTextArea();
 		textArea.setFont(new Font("Consolas", Font.PLAIN, 18));
 		frame.add(textArea);
