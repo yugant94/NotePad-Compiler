@@ -42,8 +42,6 @@ public class Notepad {
 	JMenuItem itemSaveAs;
 	JMenuItem itemExit;
 
-//	edit menu Items
-
 //	format menu items
 	JMenuItem itemWordWrap;
 	JMenu itemFont;
@@ -127,7 +125,7 @@ public class Notepad {
 
 	public void createCmdPromptItems() {
 
-		itemOpnCmdPrompt = new JMenuItem("Open Command Prompt..");
+		itemOpnCmdPrompt = new JMenuItem("Open Command Prompt");
 		itemOpnCmdPrompt.addActionListener(new ActionListener() {
 
 			@Override
@@ -135,7 +133,6 @@ public class Notepad {
 				try {
 					if (openPath != null) {
 						Runtime.getRuntime().exec(new String[] { "cmd", "/K", "start" }, null, new File(openPath));
-
 					} else {
 
 						Runtime.getRuntime().exec(new String[] { "cmd", "/K", "start" }, null, null);
@@ -147,7 +144,7 @@ public class Notepad {
 			}
 		});
 
-		itemOpnCmdPrompt.setFont(itemOpnCmdPrompt.getFont().deriveFont(16.0f)); // Increased font size
+		itemOpnCmdPrompt.setFont(itemOpnCmdPrompt.getFont().deriveFont(16.0f));
 		cmdMenu.add(itemOpnCmdPrompt);
 
 	}
@@ -174,11 +171,11 @@ public class Notepad {
 				}
 			}
 		});
-		itemWordWrap.setFont(itemWordWrap.getFont().deriveFont(16.0f)); // Increased font size
+		itemWordWrap.setFont(itemWordWrap.getFont().deriveFont(16.0f));
 		formatMenu.add(itemWordWrap);
 
 		itemFont = new JMenu("Font");
-		itemFont.setFont(itemFont.getFont().deriveFont(16.0f)); // Increased font size
+		itemFont.setFont(itemFont.getFont().deriveFont(16.0f));
 		formatMenu.add(itemFont);
 
 		JMenuItem itemArial = new JMenuItem("Arial");
@@ -190,7 +187,7 @@ public class Notepad {
 				setFontType("Arial");
 			}
 		});
-		itemArial.setFont(itemArial.getFont().deriveFont(16.0f)); // Increased font size
+		itemArial.setFont(itemArial.getFont().deriveFont(16.0f));
 		itemFont.add(itemArial);
 
 		JMenuItem itemTimesNewRoman = new JMenuItem("Times New Roman");
@@ -203,7 +200,7 @@ public class Notepad {
 
 			}
 		});
-		itemTimesNewRoman.setFont(itemTimesNewRoman.getFont().deriveFont(16.0f)); // Increased font size
+		itemTimesNewRoman.setFont(itemTimesNewRoman.getFont().deriveFont(16.0f));
 		itemFont.add(itemTimesNewRoman);
 
 		JMenuItem itemConsolas = new JMenuItem("Consolas");
@@ -215,15 +212,15 @@ public class Notepad {
 				setFontType("Consolas");
 			}
 		});
-		itemConsolas.setFont(itemConsolas.getFont().deriveFont(16.0f)); // Increased font size
+		itemConsolas.setFont(itemConsolas.getFont().deriveFont(16.0f));
 		itemFont.add(itemConsolas);
 
 		itemFontSize = new JMenu("Font size");
-		itemFontSize.setFont(itemFontSize.getFont().deriveFont(16.0f)); // Increased font size
+		itemFontSize.setFont(itemFontSize.getFont().deriveFont(16.0f));
 		formatMenu.add(itemFontSize);
 
 		JMenuItem size10 = new JMenuItem("10");
-		size10.setFont(size10.getFont().deriveFont(16.0f)); // Increased font size
+		size10.setFont(size10.getFont().deriveFont(16.0f));
 		itemFontSize.add(size10);
 		size10.addActionListener(new ActionListener() {
 
@@ -234,7 +231,7 @@ public class Notepad {
 		});
 
 		JMenuItem size14 = new JMenuItem("14");
-		size14.setFont(size14.getFont().deriveFont(16.0f)); // Increased font size
+		size14.setFont(size14.getFont().deriveFont(16.0f));
 		itemFontSize.add(size14);
 		size14.addActionListener(new ActionListener() {
 
@@ -245,7 +242,7 @@ public class Notepad {
 		});
 
 		JMenuItem size18 = new JMenuItem("18");
-		size18.setFont(size18.getFont().deriveFont(16.0f)); // Increased font size
+		size18.setFont(size18.getFont().deriveFont(16.0f));
 		itemFontSize.add(size18);
 		size18.addActionListener(new ActionListener() {
 
@@ -256,7 +253,7 @@ public class Notepad {
 		});
 
 		JMenuItem size22 = new JMenuItem("22");
-		size22.setFont(size22.getFont().deriveFont(16.0f)); // Increased font size
+		size22.setFont(size22.getFont().deriveFont(16.0f));
 		itemFontSize.add(size22);
 		size22.addActionListener(new ActionListener() {
 
@@ -267,7 +264,7 @@ public class Notepad {
 		});
 
 		JMenuItem size26 = new JMenuItem("26");
-		size26.setFont(size26.getFont().deriveFont(16.0f)); // Increased font size
+		size26.setFont(size26.getFont().deriveFont(16.0f));
 		itemFontSize.add(size26);
 
 		size26.addActionListener(new ActionListener() {
@@ -279,7 +276,7 @@ public class Notepad {
 		});
 
 		JMenuItem size30 = new JMenuItem("30");
-		size30.setFont(size30.getFont().deriveFont(16.0f)); // Increased font size
+		size30.setFont(size30.getFont().deriveFont(16.0f));
 		itemFontSize.add(size30);
 		size30.addActionListener(new ActionListener() {
 
@@ -293,7 +290,7 @@ public class Notepad {
 
 
 		JMenuItem size34 = new JMenuItem("34");
-		size34.setFont(size34.getFont().deriveFont(16.0f)); // Increased font size
+		size34.setFont(size34.getFont().deriveFont(16.0f));
 		size34.addActionListener(new ActionListener() {
 
 			@Override
@@ -308,14 +305,12 @@ public class Notepad {
 	}
 
 	public void setFontSize(int size) {
-	    currentFontSize = size; // Update the current font size
-	    // Reapply the font with the current style and updated size
+	    currentFontSize = size;
 	    setFontType(fontStyle); 
 	}
 
 	public void setFontType(String font) {
-	    fontStyle = font; // Update the font style
-	    // Apply the font style with the current size
+	    fontStyle = font;
 	    textArea.setFont(new Font(fontStyle, Font.PLAIN, currentFontSize));
 	}
 
@@ -390,7 +385,7 @@ public class Notepad {
 			}
 		});
 
-		itemNew.setFont(itemNew.getFont().deriveFont(16.0f)); // Increased font size
+		itemNew.setFont(itemNew.getFont().deriveFont(16.0f));
 		fileMenu.add(itemNew);
 
 		itemNewWnindow = new JMenuItem("New Window");
@@ -416,17 +411,14 @@ public class Notepad {
 				String filename = fd.getFile();
 
 				String newPath = path + filename;
-
 				if (filename != null) {
 					frame.setTitle(filename);
-
 					openFileName = filename;
 					openPath = path;
 				}
 
 				BufferedReader br = null;
 				try {
-
 					br = new BufferedReader(new FileReader(newPath));
 					String sentence = br.readLine();
 					textArea.setText("");
@@ -517,7 +509,6 @@ public class Notepad {
 		});
 		itemExit.setFont(itemExit.getFont().deriveFont(16.0f));
 		fileMenu.add(itemExit);
-
 	}
 
 	private void createMenuBar() {
@@ -526,19 +517,19 @@ public class Notepad {
 		frame.setJMenuBar(menuBar);
 
 		fileMenu = new JMenu("File");
-		fileMenu.setFont(fileMenu.getFont().deriveFont(16.0f)); // Increased font size
+		fileMenu.setFont(fileMenu.getFont().deriveFont(16.0f));
 		menuBar.add(fileMenu);
 
 		langMenu = new JMenu("Language");
-		langMenu.setFont(langMenu.getFont().deriveFont(16.0f)); // Increased font size
+		langMenu.setFont(langMenu.getFont().deriveFont(16.0f));
 		menuBar.add(langMenu);
 
 		formatMenu = new JMenu("Format");
-		formatMenu.setFont(formatMenu.getFont().deriveFont(16.0f)); // Increased font size
+		formatMenu.setFont(formatMenu.getFont().deriveFont(16.0f));
 		menuBar.add(formatMenu);
 
 		cmdMenu = new JMenu("Command Prompt");
-		cmdMenu.setFont(cmdMenu.getFont().deriveFont(16.0f)); // Increased font size
+		cmdMenu.setFont(cmdMenu.getFont().deriveFont(16.0f));
 		menuBar.add(cmdMenu);
 
 	}
