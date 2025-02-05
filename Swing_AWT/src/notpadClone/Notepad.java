@@ -2,9 +2,7 @@ package notpadClone;
 
 import java.awt.FileDialog;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.Image;
-import java.awt.MenuBar;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,7 +58,7 @@ public class Notepad {
 	Font timesNewRoman;
 	Font consolas;
 
-	String fontStyle = "Consolas";
+	String fontStyle = "Arial";
 	int currentFontSize = 18;
 
 	public Notepad() {
@@ -68,6 +66,8 @@ public class Notepad {
 		createTextArea();
 		createScrollBar();
 		createMenuBar();
+
+//		creating items
 		createFileMenuItems();
 		createEditLanguageItems();
 		createFormatMenuItems();
@@ -117,15 +117,16 @@ public class Notepad {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setLanguage("CPP");
-				
+
 			}
 		});
-
 	}
 
 	public void createCmdPromptItems() {
 
 		itemOpnCmdPrompt = new JMenuItem("Open Command Prompt");
+		itemOpnCmdPrompt.setFont(itemOpnCmdPrompt.getFont().deriveFont(16.0f));
+		cmdMenu.add(itemOpnCmdPrompt);
 		itemOpnCmdPrompt.addActionListener(new ActionListener() {
 
 			@Override
@@ -144,8 +145,6 @@ public class Notepad {
 			}
 		});
 
-		itemOpnCmdPrompt.setFont(itemOpnCmdPrompt.getFont().deriveFont(16.0f));
-		cmdMenu.add(itemOpnCmdPrompt);
 
 	}
 
@@ -288,16 +287,13 @@ public class Notepad {
 			}
 		});
 
-
 		JMenuItem size34 = new JMenuItem("34");
 		size34.setFont(size34.getFont().deriveFont(16.0f));
 		size34.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				setFontSize(34);
-
 			}
 		});
 		itemFontSize.add(size34);
@@ -305,15 +301,14 @@ public class Notepad {
 	}
 
 	public void setFontSize(int size) {
-	    currentFontSize = size;
-	    setFontType(fontStyle); 
+		currentFontSize = size;
+		setFontType(fontStyle);
 	}
 
 	public void setFontType(String font) {
-	    fontStyle = font;
-	    textArea.setFont(new Font(fontStyle, Font.PLAIN, currentFontSize));
+		fontStyle = font;
+		textArea.setFont(new Font(fontStyle, Font.PLAIN, currentFontSize));
 	}
-
 
 	public void setLanguage(String lang) {
 		BufferedReader br = null;
@@ -422,7 +417,6 @@ public class Notepad {
 					br = new BufferedReader(new FileReader(newPath));
 					String sentence = br.readLine();
 					textArea.setText("");
-
 					while (sentence != null) {
 						textArea.append(sentence + "\n");
 						sentence = br.readLine();
@@ -485,15 +479,11 @@ public class Notepad {
 				String path = fd.getDirectory();
 				String filename = fd.getFile();
 
-				openPath = path;
-				openFileName = filename;
-
 				if (path != null && filename != null) {
 					writeDataToFile(filename, path);
 					openFileName = filename;
 					openPath = path;
 					frame.setTitle(openFileName);
-
 				}
 			}
 		});
@@ -544,7 +534,7 @@ public class Notepad {
 	public void createFrame() {
 		frame = new JFrame("Notepad");
 		frame.setBounds(600, 200, 400, 350);
-		Image icon =Toolkit.getDefaultToolkit().getImage("C:\\Users\\admin\\Desktop\\notepad_logo.png");
+		Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\admin\\Desktop\\notepad_logo.png");
 		frame.setIconImage(icon);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -552,7 +542,7 @@ public class Notepad {
 
 	public void createTextArea() {
 		textArea = new JTextArea();
-		textArea.setFont(new Font("Consolas", Font.PLAIN, 18));
+		textArea.setFont(new Font(fontStyle, Font.PLAIN, currentFontSize));
 		frame.add(textArea);
 		textArea.setVisible(true);
 	}
