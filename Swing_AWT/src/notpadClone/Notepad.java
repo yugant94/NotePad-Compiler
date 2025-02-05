@@ -542,7 +542,7 @@ public class Notepad {
 
 	public void createTextArea() {
 		textArea = new JTextArea();
-		textArea.setFont(new Font(fontStyle, Font.PLAIN, currentFontSize));
+		textArea.setFont(new Font("Arial", Font.PLAIN, currentFontSize));
 		frame.add(textArea);
 		textArea.setVisible(true);
 	}
